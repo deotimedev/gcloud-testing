@@ -1,3 +1,4 @@
+import org.gradle.jvm.tasks.Jar
 import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
 
 plugins {
@@ -18,6 +19,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines)
     implementation(libs.bundles.serialization)
     implementation(libs.bundles.ktor)
+    implementation(libs.gcloud.compute)
+    implementation(libs.bundles.logging)
 }
 
 kotlin {
@@ -30,4 +33,8 @@ application {
 
 shadow {
     archivesName = "gcloud-instance-manager"
+}
+
+tasks.withType<Jar> {
+    archiveFileName = "gcloud-instance-manager.jar"
 }
