@@ -31,10 +31,10 @@ application {
     mainClass.set("MainKt")
 }
 
-shadow {
-    archivesName = "gcloud-instance-manager"
-}
-
 tasks.withType<Jar> {
     archiveFileName = "gcloud-instance-manager.jar"
+}
+
+tasks.create("deployGCloud") {
+
 }
