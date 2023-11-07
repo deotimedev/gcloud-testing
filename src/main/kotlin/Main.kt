@@ -16,6 +16,7 @@ import kotlinx.coroutines.withContext
 import java.io.File
 
 suspend fun main(): Unit = coroutineScope {
+    // somewhat of a slow call but easier than setting up a http client to make metadata request (idk why theres not just an api)
     val project = runCommand("gcloud config get project") ?: error("Could not find google cloud project id.")
     embeddedServer(Netty, port = 80) {
         install(ContentNegotiation) {
